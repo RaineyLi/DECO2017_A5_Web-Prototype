@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>TIMER</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    
+    <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+   
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="TASK LIST.html">TASK LIST</a></li>
+                <li class="active"><a href="#">TIMER</a></li>
+                <li><a href="NOTES.html">NOTES</a></li>
+            </ul>
+        </nav>
+
+        <div id="waitTime"></div>
+
+
+ <input type="text" value="0" id="time"/>
+        <input type="button" value="START"  onclick="timecount()" id="timesum" />
+        <input type="button" value="STOP" onclick="timestop()" />
+      
+        <script>
+         
+            var timeCount = 0;
+            function timecount(){
+                document.getElementById("time").value = timeCount;
+                timeCount++;
+                setTimeout("timecount()",1000); 
+            }
+            function timestop(){
+                clearTimeout(timeCount); 
+                document.getElementById("timesum").value = "Continue"
+            }
+          
+          if var time=
+        </script>
+    </div>
+</body>
+</html>

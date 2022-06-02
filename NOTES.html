@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Notes</title>
+    <meta charset="utf-8">
+
+   
+    <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+    
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="TASK LIST.html">TASK LIST</a></li>
+                <li><a href="TIMER.html">TIMER</a></li>
+                <li class="active"><a href="NOTES.html">NOTES</a></li>
+            </ul>
+        </nav>
+
+        <div id="submain">
+            <section id="subcontent">
+                <div id="">
+                    <center>
+        <h6> Acronym Maker</h6>
+        <table id = "list" width = 60%>
+          <thead>
+            <th>Acronym Mnemonic</th>
+            <th>Words</th>
+          <th>Concepts</th>
+          </thead>
+            
+        </table>
+                      <tbody id="notebody"> 
+                        </tbody>
+                </div>
+            </section>
+
+         
+<center>
+		<div>
+			<b class="more" onclick="displayWindow()">
+				ADD NEW NOTE</b>
+		</div>
+		
+		<div id="window" class="window_css">
+       <div id="table">
+                            <center><h6>Create New Note</h6></center>
+                            <center><div>
+                                <table style="text-align: center;">
+                                  <tr><td>Acronym:</td>
+                                        <td><input type="text" id="acronym"></td>
+                                    <tr><td>Words:</td>
+                                        <td><input type="text" id="word"></td>
+                                    </tr>
+                                    </tr>
+                                    <tr><td>Concepts:</td>
+                                        <td><input type="text" id="concpet"></td>
+                                    </tr>
+                                    
+                                        <td>
+                                        </td>
+                                        <td style="text-align:left">
+                                                <input id="submit" class="submit" type="submit" value="Submit" />
+                                            </td>
+                                    </tr>
+                                </table>
+                            </div></center>
+    </div>
+			<b2 class="more" onclick="hideWindow()">
+				CANCEL
+			</b2>
+		</div>
+	
+		<div id="shadow" class="shadow_css">
+     
+      <div>
+
+	<script>
+
+		function displayWindow() {
+			document.getElementById("window").style.display = "block";
+			document.getElementById("shadow").style.display = "block";
+		}
+
+		function hideWindow() {
+			document.getElementById("window").style.display = "none";
+			document.getElementById("shadow").style.display = "none";
+		}
+	</script>
+
+      
+
+    </div>
+
+          <center>
+		<div>
+			
+		</div>
+		
+		
+          </center>
+      <script>
+       var notelist = function () {
+                var jsonstr = localStorage.getItem("notelist");
+                var notes = jsonstr == null || jsonstr.length == 0 ? [] : JSON.parse(jsonstr);
+
+                var tmp = "";
+                notes.forEach(function (e, i) {
+                    tmp += "<tr>";
+                    tmp += "<td>" + e.acronym + "</td>";
+                  tmp += "<td>" + e.word + "</td>";
+                    tmp += "<td>" + e.concept + "</td>";
+                   
+                    tmp += "</tr>";
+                });
+                document.getElementById("notebody").innerHTML = tmp;
+            }
+            notelist();
+
+            document.getElementById("submit").onclick = function () { 
+                var jsonstr = localStorage.getItem("notelist");
+                var notes = jsonstr == null || jsonstr.length == 0 ? [] : JSON.parse(jsonstr);
+
+
+                var acronym = document.getElementById("acronym").value;
+                var word = document.getElementById("word").value;
+                var concpet = document.getElementById("concpet").value;
+                
+                var item = {
+                    acronym: acronym,
+                    word: word,
+                    concept: concpet,
+                };
+                notes.push(item);
+                var jsonstr = JSON.stringify(notes);
+                localStorage.setItem("notelist", jsonstr);
+
+                notelist(); 
+                hideWindow();
+            };</script>
+        </div>
+     
+</body>
+</html>

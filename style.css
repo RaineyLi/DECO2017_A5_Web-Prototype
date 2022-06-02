@@ -1,20 +1,38 @@
 /* base styles */
 body {
     background:#e0d5c5;
-    color:#6a95b8;
-    font:100%/1.125em Arial, Helvetica, sans-serif;
+    color:#7B8677;
+    font:120%/1.125em Arial, Helvetica, sans-serif;
     margin:0;
     position:relative;
 }
 a {
-    color:#c24050;
     outline:none;
     text-decoration:underline;
+   font-size:1em;
+  margin:0;
+  position:relative;
 }
 a:hover,a:active {
     outline:0;
     text-decoration:none;
 }
+  b{
+    color:#7B8677;
+     outline:none;
+    text-decoration:underline;
+   font-size:3em;
+  margin:40%  0  10%;
+  position:relative;
+  }
+b2{
+    color:#7B8677;
+     outline:none;
+    text-decoration:underline;
+   font-size:3em;
+  margin:50%  0  5%;
+  position:relative;
+  }
 img {
     border:0 none;
     margin:0;
@@ -28,7 +46,7 @@ a:hover img {
     opacity:.8;
 }
 h1,h2,h3,h4 {
-    color:#262626;
+    color:#7B8677;
     font-family:cursive;
     font-weight:400;
     padding:0;
@@ -51,6 +69,17 @@ h3 {
 h4 {
     font-size:1em;
     margin:0 0 1.5em;
+}
+h5 {
+  font-size:4em;
+  font-family:fantacy;
+  margin: 10% 10% 0 0;
+  color: #7B8677; 
+}
+h6 {
+  font-size:4em;
+  font-family:fantacy;
+  color: #7B8677;
 }
 p {
     margin:0 0 1.5em;
@@ -93,11 +122,11 @@ ul li time {
     border-right:1px solid #e1e1e1;
     font-size:.75em;
     margin:0 auto;
-    width:949px;
+    width:80%;
 }
 .more {
     background:#efefef;
-    color:#262626;
+    color:#7B8677;
     display:inline-block;
     line-height:28px;
     padding:0 10px;
@@ -111,7 +140,7 @@ ul li time {
     -webkit-border-radius:5px;
 }
 .more:hover {
-    background:#4faad4;
+    background:#7B8677;
     color:#fff;
 }
 
@@ -122,27 +151,14 @@ header {
     position:relative;
     z-index:99;
 }
-.logo {
-    left:44px;
-    position:absolute;
-    top:41px;
-}
-.logo img {
-    margin:0 auto 3px;
-}
-
-
 
 
 /*navigation menu*/
 nav {
-    background:#fcfcfc;
-    border-bottom:1px solid #e7e7e7;
-    border-top:1px solid #e7e7e7;
+    background:#7B8677;
     display:block;
-    margin-bottom:34px;
     overflow:hidden;
-    padding:13px 0 14px;
+    padding:10px 0 10px;
     position:relative;
     z-index:99;
 }
@@ -164,7 +180,7 @@ nav ul li:first-child {
     margin-left:0;
 }
 nav ul li a {
-    color:#343434;
+    color:#fcfcfc;
     display:block;
     padding:8px 12px;
     position:relative;
@@ -178,8 +194,8 @@ nav ul li a {
     -webkit-border-radius:5px;
 }
 nav ul li a:hover,nav ul li.active a {
-    background-color:rgba(33, 44, 141, 0.788);
-    color:#FFF;
+    background-color:#fcfcfc;
+    color:#7B8677;
 }
 
 
@@ -204,8 +220,18 @@ nav ul li a:hover,nav ul li.active a {
 }
 #content ul li {
     float:left;
-    margin:0 0 0 22px;
+    margin:0 0 22px;
     width:288px;
+}
+#content img{
+  float:left;
+ 
+  margin:5% 10% 5% 0;
+}
+#content audio{
+  float:right;
+  margin:10% 30% 0 0;
+
 }
 #content ul li:first-child {
     margin:0;
@@ -222,12 +248,17 @@ nav ul li a:hover,nav ul li.active a {
 }
 #subcontent #left {
     float:left;
-    width:69%;
+   margin-left:10%;
+  margin-right:10%;
 }
 #subcontent #right {
     float:left;
     margin-left:2%;
     width:29%;
+}
+#subcontent #time{
+  float:right;
+  
 }
 #subcontent ul li {
     margin-bottom:15px;
@@ -235,9 +266,8 @@ nav ul li a:hover,nav ul li.active a {
 }
 #subcontent ul li img {
     float:left;
-    height:128px;
     margin:5px 20px 5px 0;
-    width:128px;
+    width:200px;
 }
 #subcontent .archives li {
     border-bottom:1px solid #E7E7E7;
@@ -252,6 +282,35 @@ nav ul li a:hover,nav ul li.active a {
 #subcontent .archives li a:hover {
     background-color:#fafafa;
 }
+		.shadow_css {
+			display: none;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index: 10;
+			-moz-opacity: 0.6;
+			opacity: .60;
+			filter: alpha(opacity=66);
+		}
+		
+		.window_css {
+			display: none;
+			position: absolute;
+			top: 20%;
+			left: 25%;
+			width: 50%;
+			height: 60%;
+			border: 5% solid #7B8677;
+			background-color: #e0d5c5;
+			z-index: 11;
+		}
+.table{
+  width:80%;
+}
+
 
 /* footer section */
 footer {

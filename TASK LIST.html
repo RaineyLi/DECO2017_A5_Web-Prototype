@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>TASK LIST</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="#">TASK LIST</a></li>
+                <li><a href="TIMER.html">TIMER</a></li>
+                <li><a href="NOTES.html">NOTES</a></li>
+            </ul>
+        </nav>
+        <div id="main">
+            <section id="content">
+                <center>
+                    <h6>TASK LIST</h6>
+                    <table id="list" width=60%>
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Priority rating</th>
+                                <th>Estimated time to complete</th>
+                                <th> Completion status</th>
+                                <th>Due date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listbody"> 
+                        </tbody>
+                    </table>
+                </center> 
+                <center>
+                    <div>
+                        <b class="more" onclick="displayWindow()">
+                            ADD NEW TASK
+                        </b>
+                    </div>
+
+                    <div id="window" class="window_css">
+                        <div id="table">
+                            <center><h6>Create New Task</h6></center>
+                            <center>
+                                <div>
+                                    <p>Pariority Rating:</p>
+                                    <select id="Pariority">
+                                        <option value="High">High</option>
+                                        <option value="Med">Med</option>
+                                        <option value="Low">Low</option>
+                                    </select>
+                                    <p>Due date:</p>
+                                    <select id="month">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <select id="date">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                    <table style="text-align: center;">
+                                        <tr>
+                                            <td>Task Name:</td>
+                                            <td><input type="text" id="taskname" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Estimated time to complete:</td>
+                                            <td><input type="text" id="estimated" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Completion status:</td>
+                                            <td style="text-align:left">
+                                                <select id="seltaskstatus">
+                                                    <option value="Done">Done</option>
+                                                    <option value="Not Done">Not Done</option>
+
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td style="text-align:left">
+                                                <input id="submit" class="submit" type="submit" value="Submit" />
+                                            </td>
+                                    </table>
+                                </div>
+                            </center>
+                        </div>
+                        <b2 class="more" onclick="hideWindow()">
+                            CANCEL
+                        </b2>
+                    </div>
+            </section>
+            <div id="shadow" class="shadow_css">
+            </div>
+        </div>
+        <script>
+            function displayWindow() {
+                document.getElementById("window").style.display = "block";
+                document.getElementById("shadow").style.display = "block";
+            }
+
+            function hideWindow() {
+                document.getElementById("window").style.display = "none";
+                document.getElementById("shadow").style.display = "none";
+            }
+
+
+          
+
+            var tasklist = function () {
+                var jsonstr = localStorage.getItem("tasklist");
+                var tasks = jsonstr == null || jsonstr.length == 0 ? [] : JSON.parse(jsonstr);
+
+                var tmp = "";
+                tasks.forEach(function (e, i) {
+                    tmp += "<tr>";
+                    tmp += "<td>" + e.taskname + "</td>";
+                    tmp += "<td>" + e.pariority + "</td>";
+                    tmp += "<td>" + e.estimated + "</td>";
+                    tmp += "<td>" + e.seltaskstatus + "</td>";
+                    tmp += "<td>" + e.date + "</td>";
+                    tmp += "</tr>";
+                });
+                document.getElementById("listbody").innerHTML = tmp;
+            }
+            tasklist();
+
+            document.getElementById("submit").onclick = function () { 
+                var jsonstr = localStorage.getItem("tasklist");
+                var tasks = jsonstr == null || jsonstr.length == 0 ? [] : JSON.parse(jsonstr);
+
+
+                var taskname = document.getElementById("taskname").value;
+                var Priority = document.getElementById("Pariority").value;
+                var month = document.getElementById("month").value;
+                var date = document.getElementById("date").value;
+                var estimated = document.getElementById("estimated").value;
+                var seltaskstatus = document.getElementById("seltaskstatus").value;
+                var item = {
+                    taskname: taskname,
+                    pariority: Priority,
+                    date: date + "/" + month,
+                    estimated: estimated,
+                    seltaskstatus: seltaskstatus,
+                };
+                tasks.push(item);
+                var jsonstr = JSON.stringify(tasks);
+                localStorage.setItem("tasklist", jsonstr);
+
+                tasklist(); //添加成功后显示list
+                hideWindow();
+            };
+
+           
+
+          
+        </script>
+</body>
+</html>
